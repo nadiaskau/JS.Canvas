@@ -1,0 +1,8 @@
+#container{
+    display: flex;
+    flex-direction: row;
+}
+
+#canvas1, #canvas2{
+    outline: 1px solid black;
+}
