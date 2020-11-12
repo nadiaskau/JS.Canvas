@@ -1,49 +1,33 @@
 'use strict';
 import {$} from '../nQuery.js';
-import {drawCanvas, hittest} from './drawCanvas.js';
+import {drawCanvas, hittest, shapes} from './drawCanvas.js';
+import {Shape, Circle} from './Shape.js'; 
+import {Canvas} from './Canvas.js'; 
 /*
  * nmlCanvas0.js
  * function drawing a polygon
  */
-
  
 let drawButton = $('draw'); 
-let mycv = $('canvas2'); 
+let canvasToolbox = new Canvas('canvas2', 'transparent'); 
 
-let threeShapes = function () {
-    let canvas = $('canvas2');
-    if (canvas.getContext) {
-        var ctx = canvas.getContext('2d');
+let shape1 = new Shape(canvasToolbox, 20, 10, 120, 40, 'blue');
+shape1.draw(); 
+shapes.push(shape1); 
 
-        ctx.fillStyle = "#088";         // fill color to 088
-        ctx.fillRect(20, 10, 120, 40);  // fill rectangle
+let shape2 = new Shape(canvasToolbox, 200, 20, 40, 120, '#cc0'); 
+shape2.draw(); 
+shapes.push(shape2);
 
+let shape3 = new Circle(canvasToolbox, 150, 150, 50, 0, Math.PI * 1, 'red', false);
+shape3.draw(); 
+shapes.push(shape3);
 
-        ctx.beginPath();                // begin new path
-        ctx.arc(150, 150, 50, 0, Math.PI * 1, true); //halvcirkel
-        ctx.lineTo(200, 150);
-                                        // describe arc
-        ctx.strokeStyle = 'red';        // stroke color
-        ctx.fillStyle = '#cc0';         // set fill color
-        ctx.fill();                     // fill the path
-        ctx.stroke();                   // draw circumference
+let shape4 = new Shape(canvasToolbox, 10, 200, 60, 60, 'pink'); 
+shape4.draw(); 
+shapes.push(shape4);
 
-
-        ctx.lineWidth = 2;              // stroke weight
-        ctx.strokeStyle = 'blue';       // stroke color
-        ctx.strokeRect(175, 175, 100, 40); // draw rectangle
-
-
-        ctx.fillStyle = "purple"; 
-        ctx.fillRect(40, 70, 50, 120); // draw rectangle
-
-        ctx.fillStyle = "pink"; 
-        ctx.fillRect(120, 230, 150, 30); // draw rectangle
-        
-    }
-}
-
-mycv.addEventListener('click', hittest);
+canvasToolbox.canvas.addEventListener('click', hittest);
 drawButton.addEventListener('click', drawCanvas);
 
-window.addEventListener('load', threeShapes);
+console.log(shape3);
