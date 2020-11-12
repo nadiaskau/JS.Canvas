@@ -11,7 +11,7 @@ import {Canvas} from './Canvas.js';
 let drawButton = $('draw'); 
 let canvasToolbox = new Canvas('canvas2', 'transparent'); 
 
-let shape1 = new Rect(canvasToolbox, 20, 10, 120, 40, 'blue');
+let shape1 = new Rect(canvasToolbox, 350, 10, 120, 40, 'blue');
 shape1.draw(); 
 shapes.push(shape1); 
 
@@ -23,7 +23,7 @@ let shape3 = new Circle(canvasToolbox, 150, 150, 50, 0, Math.PI * 1, 'red', fals
 shape3.draw(); 
 shapes.push(shape3);
 
-let shape4 = new Rect(canvasToolbox, 10, 200, 60, 60, 'pink'); 
+let shape4 = new Rect(canvasToolbox, 200, 200, 60, 60, 'pink'); 
 shape4.draw(); 
 shapes.push(shape4);
 

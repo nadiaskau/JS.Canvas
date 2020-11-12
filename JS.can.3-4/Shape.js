@@ -1,7 +1,9 @@
 /*
 Source: http://dkexit.eu/webdev/site/ch11s05.html 
-Author: NML
+Author: NML (with a twist)
 */ 
+
+import {Canvas} from './Canvas.js';
 
 export class Shape {
     constructor(cv, x, y, color) {
@@ -11,17 +13,6 @@ export class Shape {
         this.color = color;
     }
 
-    draw() {
-        this.ctx.beginPath();
-        this.ctx.moveTo(this.x, this.y);
-        this.ctx.rect(this.x, this.y, this.width, this.height);
-        this.ctx.closePath();
-
-        this.ctx.lineWidth = 2;
-        this.ctx.fillStyle = this.color;
-        this.ctx.fill();
-        this.ctx.stroke();
-    }
 };
 
 export class Rect extends Shape {
@@ -29,6 +20,34 @@ export class Rect extends Shape {
         super(cv, x, y, color);
         this.width = width;
         this.height = height;
+    }
+
+    draw() {
+        
+        this.ctx.beginPath();
+        if(this.x < 0) //Hvis den bliver tegnet udenfor vores canvas
+        {
+            this.x = 2; 
+        }
+        else if (this.x > this.ctx.canvas.width - this.width) {
+            this.x = this.ctx.canvas.width - this.width;
+        }
+
+        if(this.y < 0)
+        {
+            this.y = 2; 
+        }
+        else if (this.y > this.ctx.canvas.height - this.height) {
+            this.y = this.ctx.canvas.height - this.height;
+        }
+
+        this.ctx.moveTo(this.x, this.y);
+        this.ctx.rect(this.x, this.y, this.width, this.height);
+        this.ctx.closePath();
+        this.ctx.lineWidth = 2;
+        this.ctx.fillStyle = this.color;
+        this.ctx.fill();
+        this.ctx.stroke();
     }
 };
 
@@ -43,6 +62,23 @@ export class Circle extends Shape {
 
     draw() {
         this.ctx.beginPath();
+
+        if(this.x < 0) //Hvis den bliver tegnet udenfor vores canvas
+        {
+            this.x = 2; 
+        }
+        else if (this.x > this.ctx.canvas.width - this.r) {
+            this.x = this.ctx.canvas.width - this.r;
+        }
+
+        if(this.y < 0)
+        {
+            this.y = 2; 
+        }
+        else if (this.y > this.ctx.canvas.height - this.r) {
+            this.y = this.ctx.canvas.height - this.r;
+        }
+
         this.ctx.moveTo(this.x, this.y);
         this.ctx.arc(this.x, this.y, this.r, this.startangle, this.endangle, this.direct);
         this.ctx.closePath();

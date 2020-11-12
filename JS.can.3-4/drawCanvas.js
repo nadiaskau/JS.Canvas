@@ -1,7 +1,8 @@
 'use strict';
 import {$} from '../nQuery.js';
+import {Canvas} from './Canvas.js';
 
-let canvas1 = $('canvas1');
+let canvas1 = new Canvas('canvas1', 'transparent');
 let ctxNew = canvas1.getContext("2d");
 
 function drawCanvas(height, width){
@@ -9,8 +10,8 @@ function drawCanvas(height, width){
     height = $('height').value;
     width = $('width').value; 
 
-    canvas1.width = width; 
-    canvas1.height = height; 
+    canvas1.canvas.width = width; 
+    canvas1.canvas.height = height; 
 
 }
 
@@ -27,13 +28,14 @@ let hittest = function (ev) {
         let x = (ev.clientX - bb.left) * (this.width / bb.width);
         let y = (ev.clientY - bb.top) * (this.height / bb.height);
         if (cx.isPointInPath(x, y)) { 
+            shape.cv = canvas1;
             shape.ctx = ctxNew; 
             shape.draw(); 
             // window.alert("hit: "+x+","+y);
         } else {
             // window.alert("nohit: "+x+","+y);
         }
-        console.log(shape);
+        //console.log(shape);
     }
 }
 
