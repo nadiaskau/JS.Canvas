@@ -31,4 +31,4 @@ canvasToolbox.canvas.addEventListener('click', hittest);
 canvas1.canvas.addEventListener('click', drawShape);
 drawButton.addEventListener('click', drawCanvas);
 
-console.log(shape4);
+export {canvasToolbox}; 
