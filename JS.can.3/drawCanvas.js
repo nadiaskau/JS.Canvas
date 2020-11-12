@@ -1,14 +1,11 @@
 'use strict';
 import {$} from '../nQuery.js';
-import {Circle, Shape} from './Shape.js'
 
 let canvas1 = $('canvas1');
 let ctxNew = canvas1.getContext("2d");
 
 function drawCanvas(height, width){
-    debugger;
     
-
     height = $('height').value;
     width = $('width').value; 
 
@@ -29,8 +26,7 @@ let hittest = function (ev) {
         // mouse to canvas coordinates
         let x = (ev.clientX - bb.left) * (this.width / bb.width);
         let y = (ev.clientY - bb.top) * (this.height / bb.height);
-        if (cx.isPointInPath(x, y)) {
-            debugger;  
+        if (cx.isPointInPath(x, y)) { 
             shape.ctx = ctxNew; 
             shape.draw(); 
             // window.alert("hit: "+x+","+y);
