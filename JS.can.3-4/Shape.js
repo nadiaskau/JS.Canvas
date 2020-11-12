@@ -61,8 +61,8 @@ export class Circle extends Shape {
     }
 
     draw() {
-        this.ctx.beginPath();
 
+        this.ctx.beginPath();
         if(this.x < 0) //Hvis den bliver tegnet udenfor vores canvas
         {
             this.x = 2; 
