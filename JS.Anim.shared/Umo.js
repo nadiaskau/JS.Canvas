@@ -15,8 +15,8 @@ export class Umo {
             this.x = this.r * 2;
         }
 
-        this.y = Math.random() * (this.canvas.getHeight() - this.r * 2) //hvis disken går udover y-aksen
-        if(this.y > this.canvas.getHeight() - this.r * 2){
+        this.y = Math.random() * (this.canvas.getHeight() - this.r * 2)
+        if(this.y > this.canvas.getHeight() - this.r * 2){  //hvis disken går udover y-aksen
             this.y = this.canvas.getHeight() - this.r * 2;
         }
         else if(this.y < this.r * 2){
