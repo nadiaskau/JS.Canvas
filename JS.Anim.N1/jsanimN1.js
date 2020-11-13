@@ -33,10 +33,14 @@ const redraw = function () {
   canvas.prep();
 
   for ( disk of umos ) {
-    disk.move();
+    //WARNING DONT USE WHILE LOOP!!!!
+    if ( umos.length != 1 ) { //hvis der kun er tilbage, så stopper den
+      disk.move();
+      disk.collisionDetect( umos );
+    }
     disk.draw();
-    disk.collisionDetect( umos );
   }
+
   console.log( umos.length );
 }
 

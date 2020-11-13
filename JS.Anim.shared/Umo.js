@@ -24,7 +24,6 @@ export class Umo {
     this.dx = Math.random() * 3;
     this.dy = Math.random() * 3;
     this.color = color;
-    console.log( this.r );
   }
 
   draw() {
@@ -78,6 +77,10 @@ export class Umo {
         }
       }
     }
+  }
+
+  stop() {
+
   }
 
   toString() {
