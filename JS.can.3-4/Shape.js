@@ -1,7 +1,7 @@
 /*
-Source: http://dkexit.eu/webdev/site/ch11s05.html 
+Source: http://dkexit.eu/webdev/site/ch11s05.html
 Author: NML (with a twist)
-*/ 
+*/
 
 import {Canvas} from './Canvas.js';
 
@@ -12,7 +12,6 @@ export class Shape {
         this.y = y;
         this.color = color;
     }
-
 };
 
 export class Rect extends Shape {
@@ -23,11 +22,11 @@ export class Rect extends Shape {
     }
 
     draw() {
-        
+
         this.ctx.beginPath();
         if(this.x < 0) //Hvis den bliver tegnet udenfor vores canvas
         {
-            this.x = 2; 
+            this.x = 2;
         }
         else if (this.x > this.ctx.canvas.width - this.width) {
             this.x = this.ctx.canvas.width - this.width;
@@ -35,7 +34,7 @@ export class Rect extends Shape {
 
         if(this.y < 0)
         {
-            this.y = 2; 
+            this.y = 2;
         }
         else if (this.y > this.ctx.canvas.height - this.height) {
             this.y = this.ctx.canvas.height - this.height;
@@ -65,7 +64,7 @@ export class Circle extends Shape {
         this.ctx.beginPath();
         if(this.x < 0) //Hvis den bliver tegnet udenfor vores canvas
         {
-            this.x = 2; 
+            this.x = 2;
         }
         else if (this.x > this.ctx.canvas.width - this.r) {
             this.x = this.ctx.canvas.width - this.r;
@@ -73,7 +72,7 @@ export class Circle extends Shape {
 
         if(this.y < 0)
         {
-            this.y = 2; 
+            this.y = 2;
         }
         else if (this.y > this.ctx.canvas.height - this.r) {
             this.y = this.ctx.canvas.height - this.r;
