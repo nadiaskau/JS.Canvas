@@ -8,7 +8,6 @@ export class Umo2 {
 constructor( canvas, color) {
     this.canvas = canvas;
     this.color = color;
-    this.size = size;
   }
 };
 
@@ -16,8 +15,6 @@ export class Rect extends Umo2 {
   constructor(canvas, color) {
     super(canvas, color);
 
-    this.size = size;
-    
     this.dx = Math.random() * 3;
     this.dy = Math.random() * 3;
 
@@ -80,6 +77,7 @@ export class Circle extends Umo2{
     this.dy = Math.random() * 3;
 
     this.r = Math.random() * 9 + 3;
+
     this.x = Math.random() * ( this.canvas.getWidth() - this.r * 2 );
     if ( this.x > this.canvas.getWidth() - this.r * 2 ) { //hvis disken går udover x-aksen
       this.x = this.canvas.getWidth() - this.r * 2;
@@ -102,8 +100,6 @@ export class Circle extends Umo2{
   draw() {
     this.canvas.getContext()
       .beginPath();
-    this.canvas.getContext()
-      .strokeStyle = '#222';
     this.canvas.getContext()
       .fillStyle = this.color;
     this.canvas.getContext()
